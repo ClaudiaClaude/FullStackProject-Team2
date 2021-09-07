@@ -1,3 +1,11 @@
+.carousel-inner{
+     height: 400px;
+}
+.item img{
+    height: 100% !important;
+    width:  100% !important;
+}
+
 
 
  .fa {  
