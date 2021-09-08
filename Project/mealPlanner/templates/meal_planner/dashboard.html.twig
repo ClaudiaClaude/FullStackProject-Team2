@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dishes{% endblock %}
+
+{% block body %}
+<div class="container">
+
+<h1 class="color text-center m-3">Manage Users</h1>
+    <div class="row">
+    {% for user in users %}
+
+   <div class=" mb-5 col col-12 col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
+            <div class="row g-1 container-fluid card shadow-lg bg-card-color">
+            <div class="";>
+            <img style="width:100%; height:220px; object-fit: cover;" src= "{{user.avatar}}" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{user.username}}</h5>
+              <hr>
+              <a href="/profile/{{user.id}}" class="m-1 btn btn-warning" >Edit</a>
+              <a href="/delete/{{user.id}}" class="m-1 btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')" class="btn-grad2">Delete</a>
+              <a href="/details/{{user.id}}" class="m-1 btn btn-primary">Details</a>
+
+            </div>
+            </div>
+            </div>
+          </div>
+    {% endfor  %}
+</div>
+</div>
+{% endblock %}

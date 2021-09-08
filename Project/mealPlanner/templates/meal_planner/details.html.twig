@@ -8,14 +8,19 @@
         <div class="row g-1 container-fluid card shadow-lg bg-card-color">
         <img src={{dish.image}} class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{dish.dish_name}}</h5>
+          <h4 class="card-title">{{dish.dish_name}}</h4>
           <hr>
-         
-          
-          
-          <a href="/index" class="btn btn-success">Go Back</a>
+          <p class="card-text">{{dish.description}}</p>
+          <p class="card-text">{{dish.type}}</p>
+          <p class="card-text">{{dish.nutrition_facts}}</p>
+          <p class="card-text">{{dish.ingredients}}</p>
+          <p class="card-text">{{dish.recipe}}</p>
+          <p class="card-text">{{dish.category}}</p>
+          <p class="card-text">{{dish.calories}}</p>
+          <p class="card-text">{{dish.dish_status}}</p>
+       <a href="/" class="btn btn-primary">Back to the Dishes</a>
         </div>
-      </div>
-      </div>
-       </div>
+        </div>
+        </div>
+        </div>
 {% endblock %}
