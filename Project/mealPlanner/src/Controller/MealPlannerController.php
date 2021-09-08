@@ -105,9 +105,9 @@ class MealPlannerController extends AbstractController
     public function details($id): Response
     {
 
-        $event = $this->getDoctrine()->getRepository(Dishes::class)->find($id);
+        $dish = $this->getDoctrine()->getRepository(Dishes::class)->find($id);
         return $this->render('meal_planner/details.html.twig', [
-            "event" => $event
+            "dish" => $dish
         ]);
     }
 

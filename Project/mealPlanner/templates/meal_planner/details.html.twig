@@ -6,21 +6,14 @@
 <div class="container text-center">
 <div class=" mb-5 col col-12 d-flex align-items-stretch">
         <div class="row g-1 container-fluid card shadow-lg bg-card-color">
-        <img src={{event.picture}} class="card-img-top" alt="...">
+        <img src={{dish.image}} class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{event.name}}</h5>
+          <h5 class="card-title">{{dish.dish_name}}</h5>
           <hr>
-          <p class="card-text">Capacity: {{event.capacity}}</p>
-          <p class="card-text">Contact: {{event.contanctEmail}}</p>
-          <p class="card-text">Phone Number: {{event.phonenumber}}</p>
-          <p class="card-text">Location: {{event.cityname}}</p>
-          <p class="card-text">Zip: {{event.zip}}</p>
-          <p class="card-text">Address: {{event.address}}</p>
-          <p class="card-text">Url: {{event.url}}</p>
-          <p class="card-text">Type: {{event.fk_type.typename}}</p>
-          <p class="card-text">Date Time: {{event.datetime|date('F j, Y, g:i a')}}</p>
+         
           
-          <a href="/" class="btn btn-success">Go Back</a>
+          
+          <a href="/index" class="btn btn-success">Go Back</a>
         </div>
       </div>
       </div>
