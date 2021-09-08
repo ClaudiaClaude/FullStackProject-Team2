@@ -12,6 +12,10 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\String\Slugger\SluggerInterface;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Dishes;
@@ -35,7 +39,7 @@ class MealPlannerController extends AbstractController
         $dish = new Dishes();
         $form = $this->createFormBuilder($dish)
             ->add("dish_name", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("image", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("image", FileType::class, array('attr'=>array("class"=>"form-control", "style"=>"margin-bottom:15px"), 'label' => 'Image (png/jpg file)', 'mapped'=> false, 'required'=> false, 'constraints'=>[ new File(['maxSize' =>'2048k', 'mimeTypes' => ['image/*'], 'mimeTypesMessage' =>'Please upload a valid image document',])]))
             ->add("description", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("nutrition_facts", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("ingredients", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
@@ -60,6 +64,8 @@ class MealPlannerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            
             $dish_name = $form["dish_name"]->getData();
             $image = $form["image"]->getData();
             $description = $form["description"]->getData();
@@ -71,11 +77,22 @@ class MealPlannerController extends AbstractController
             $calories = $form["calories"]->getData();
             $dish_status = $form["dish_status"]->getData();
        
+            if ($image){
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+                try {
+                    $image->move($this->getParameter('picture_directory'), $newFilename);
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $dish->setImage($newFilename);
+            }
 
 
 
             $dish->setDishName($dish_name);
-            $dish->setImage($image);
+            // $dish->setImage($image);
             $dish->setDescription($description);
             $dish->setNutritionFacts($nutrition_facts);
             $dish->setIngredients($ingredients);
@@ -133,7 +150,7 @@ class MealPlannerController extends AbstractController
         $dish = $this->getDoctrine()->getRepository(Dishes::class)->find($id);
         $form = $this->createFormBuilder($dish)
             ->add("dish_name", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("image", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("image", FileType::class, array('attr'=>array("class"=>"form-control", "style"=>"margin-bottom:15px"), 'label' => 'Image (png/jpg file)', 'mapped'=> false, 'required'=> false, 'constraints'=>[ new File(['maxSize' =>'2048k', 'mimeTypes' => ['image/*'], 'mimeTypesMessage' =>'Please upload a valid image document',])]))
             ->add("description", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("nutrition_facts", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("ingredients", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
@@ -170,10 +187,21 @@ class MealPlannerController extends AbstractController
             $dish_status = $form["dish_status"]->getData();
        
 
+            if ($image){
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+                try {
+                    $image->move($this->getParameter('picture_directory'), $newFilename);
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $dish->setImage($newFilename);
+            }
 
 
             $dish->setDishName($dish_name);
-            $dish->setImage($image);
+            // $dish->setImage($image);
             $dish->setDescription($description);
             $dish->setNutritionFacts($nutrition_facts);
             $dish->setIngredients($ingredients);
