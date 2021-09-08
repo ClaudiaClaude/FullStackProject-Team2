@@ -50,19 +50,20 @@
 
 
 
-   <!--Caroussel Header-->
-   <div class="item">
+    <!--Caroussel Header-->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://www.dropicts.com/wp-content/uploads/Dropicts-Featured-Images-Food-Photography-06-edited-1024x576.jpg" class="d-block w-100" alt="...">
+                <img src="https://pixabay.com/get/g111031f5df8e74266b8bfff07ffc8d397c9c11c4986723787711ec4395098e1c973cd81fb2fd393ae49cfaac6b980734_1920.jpg
+" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://clicklovegrow.com/wp-content/uploads/2020/03/Naomi-Sherman-Advanced-Graduate4.jpg" class="d-block w-100" alt="...">
+                <img src="https://pixabay.com/get/g2c7accd3d1bf716a4ef4d2eb653cf38192f13df2617b93921080a71acc2689a61ba6a03dbef12609cf1a41a5fdfcfc4f_1920.jpg
+" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://cdn.profoto.com/cdn/05238cd/globalassets/tips-and-tricks/profoto-c1-plus-food-photography-anders-hannola.jpg?width=1200&quality=75&format=jpg"
-                    class="d-block w-100" alt="...">
+                <img src="https://pixabay.com/get/g6cc82a72f8ed9f5f4043b369fdee9b22ee5edb991e64f0747534a2b0e56baafe91792518e42f9975313ae7f427533c99_1280.jpg"
+                    class="d-block w-100 " alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -74,25 +75,36 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div>
 
     <br>
 
 
     <form class="container">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username">
+        </div>
+
+        <div class="mb-3">
+            <label for="avatar" class="form-label">Avatar</label>
+            <input type="file" class="form-control" id="avatar">
+        </div>
+
+        <div class="mb-3">
+
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password">
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="mb-3">
+            <label for="passwordRepeat" class="form-label">Password repeat</label>
+            <input type="password" class="form-control" id="passwordRepeat">
         </div>
+
         <button type="submit" class="btn btn-success">Submit</button>
         <button type="submit" class="btn btn-warning">Register</button>
     </form>

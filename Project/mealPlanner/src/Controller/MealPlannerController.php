@@ -19,7 +19,7 @@ use App\Entity\User;
 
 class MealPlannerController extends AbstractController
 {
-    #[Route('/index', name: 'meal_planner')]
+    #[Route('/', name: 'meal_planner')]
     public function index(): Response
     {
         $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findAll();
@@ -105,9 +105,9 @@ class MealPlannerController extends AbstractController
     public function details($id): Response
     {
 
-        $event = $this->getDoctrine()->getRepository(Dishes::class)->find($id);
+        $dish = $this->getDoctrine()->getRepository(Dishes::class)->find($id);
         return $this->render('meal_planner/details.html.twig', [
-            "event" => $event
+            "dish" => $dish
         ]);
     }
 
@@ -210,4 +210,68 @@ class MealPlannerController extends AbstractController
             
         ]);
     }
+
+    #[Route('/profile/{id}', name: 'profile')]
+    public function  profile($id, Request $request): Response
+    {
+
+        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $form = $this->createFormBuilder($user)
+            ->add("email", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            // ->add("roles", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("password", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("username", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("avatar", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+         
+
+            ->add("save", SubmitType::class, array('attr' => array("class" => "btn btn-success", "style" => "margin-bottom: 15px; margin-top: 15px;"), "label" => "Submit"))->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $email = $form["email"]->getData();
+            // $roles = $form["roles"]->getData();
+            $password = $form["password"]->getData();
+            $username = $form["username"]->getData();
+            $avatar = $form["avatar"]->getData();
+            
+       
+
+
+
+            $user->setEmail($email);
+            // $user->setRoles($roles);
+            $user->setPassword($password);
+            $user->setUsername($username);
+            $user->setAvatar($avatar);
+            
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($user);
+            $em->flush();
+
+
+            $this->addFlash('notice', 'User edited');
+
+            return $this->redirectToRoute('meal_planner');
+        }
+
+        return $this->render('meal_planner/profile.html.twig', [
+            "form" => $form->createView()
+        ]);
+
+       
+    }
+
+    #[Route('/dashboard', name: 'dashboard')]
+    public function dashboard(): Response
+    {
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+
+        return $this->render('meal_planner/dashboard.html.twig', [
+            "users" => $users
+        ]);
+    }
+
 }
