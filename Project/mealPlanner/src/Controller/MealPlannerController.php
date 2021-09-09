@@ -23,9 +23,12 @@ use App\Entity\User;
 
 class MealPlannerController extends AbstractController
 {
-    #[Route('/', name: 'meal_planner')]
+    #[Route('/', name: 'index')]
     public function index(): Response
     {
+        if (!is_object($this->get('security.token_storage')->getToken()->getUser())) {
+            return $this->render('security/login.html.twig');
+        }
         $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findAll();
 
         return $this->render('meal_planner/index.html.twig', [
@@ -50,7 +53,13 @@ class MealPlannerController extends AbstractController
                     'Vegetarian' => 'Vegeterian'
                 ]
             ], array('choice_attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("category", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("category", ChoiceType::class, [
+                'choices' => [
+                    'Breakfast' => 'Breakfast',
+                    'Lunch' => 'Lunch',
+                    'Dinner' => 'Dinner',
+                ]
+            ] )
             ->add("calories", NumberType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("dish_status", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             
@@ -160,8 +169,14 @@ class MealPlannerController extends AbstractController
                     'Vegan' => 'Vegan',
                     'Vegetarian' => 'Vegeterian'
                 ]
-            ], array('choice_attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("category", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ] )
+            ->add("category", ChoiceType::class, [
+                'choices' => [
+                    'Breakfast' => 'Breakfast',
+                    'Lunch' => 'Lunch',
+                    'Dinner' => 'Dinner',
+                ]
+            ] )
             ->add("calories", NumberType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("dish_status", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             
@@ -300,6 +315,21 @@ class MealPlannerController extends AbstractController
         return $this->render('meal_planner/dashboard.html.twig', [
             "users" => $users
         ]);
+    }
+
+    #[Route('/remove/{id}', name: 'remove-profile')]
+    public function remove($id): Response
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)->find($id);
+        $em->remove($user);
+        $em->flush();
+
+        $this->addFlash("notice", "Dish removed");
+
+        return $this->redirectToRoute("dashboard");
     }
 
 }
