@@ -42,43 +42,12 @@
 }
 
 
-/* ////////////////////User page start: Uros///////////////////////// */
+/* ////////////////////detail page start: Uros///////////////////////// */
 
-.container {
-    margin-top: 50px
+#recimg {
+    height: 35rem;
+    border: none;
 }
-
-.stretch-card>.card {
-    width: 100%;
-    min-width: 100%
-}
-
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid #d2d2dc;
-    border-radius: 0
-}
-
-.btn-info {
-    color: #fff;
-    background-color: #3da5f4;
-    border-color: #3da5f4
-}
-
-.btn {
-    font-size: 0.875rem;
-    line-height: 1;
-    font-weight: 400;
-    padding: .7rem 1.5rem;
-    border-radius: 0.1275rem
-}
-
-h6 {
-    font-size: .9375rem
+#det {
+    border:1px solid black;
 }
