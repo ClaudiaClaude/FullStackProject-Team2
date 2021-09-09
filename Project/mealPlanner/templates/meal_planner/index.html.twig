@@ -3,12 +3,11 @@
 {% block title %}Dishes{% endblock %}
 
 {% block body %}
+
 <div class="container">
-{% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+
+
+ 
 
 <a href="/create">Add Dish</a>
 <h1 class="color text-center m-3">All Dishes</h1>
@@ -19,7 +18,7 @@
    <div class=" mb-5 col col-12 col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
             <div class="row g-1 container-fluid card shadow-lg bg-card-color">
             <div class="";>
-            <img style="width:100%; height:220px; object-fit: cover;" src= "{{dish.image}}" class="card-img-top img-fluid" alt="...">
+            <img style="width:100%; height:220px; object-fit: cover;" src= "{{ asset( 'img/dishes/' ~ dish.image) }}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{dish.dish_name}}</h5>
               <hr>
