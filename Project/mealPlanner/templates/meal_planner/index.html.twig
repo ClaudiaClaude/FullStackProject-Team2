@@ -3,21 +3,11 @@
 {% block title %}Dishes{% endblock %}
 
 {% block body %}
-{% if app.user is null %}
-       {% do redirect('/login') %}
-    {% endif %}
-<div class="container">
-{% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
 
-    {% if app.user is null %}
-    <!-- Then display your login form -->
-{% else %}
-    <!-- Display the normal view -->
-{% endif %}
+<div class="container">
+
+
+ 
 
 <a href="/create">Add Dish</a>
 <h1 class="color text-center m-3">All Dishes</h1>

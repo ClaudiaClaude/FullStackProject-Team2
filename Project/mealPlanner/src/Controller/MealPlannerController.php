@@ -23,12 +23,10 @@ use App\Entity\User;
 
 class MealPlannerController extends AbstractController
 {
-    #[Route('/', name: 'index')]
+    #[Route('/', name: 'meal_planner')]
     public function index(): Response
     {
-        if (!is_object($this->get('security.token_storage')->getToken()->getUser())) {
-            return $this->render('security/login.html.twig');
-        }
+        
         $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findAll();
 
         return $this->render('meal_planner/index.html.twig', [
