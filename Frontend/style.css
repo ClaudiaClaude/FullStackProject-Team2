@@ -51,3 +51,10 @@
 #det {
     border:1px solid black;
 }
+
+/* ///////////////////details page ends: Uros///////////////////////////// */
+
+#dash {
+    display: flex;
+    justify-content: space-evenly;
+}
