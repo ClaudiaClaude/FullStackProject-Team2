@@ -52,9 +52,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        if ($this->security->isGranted('ROLE_BLOCKED')) {
-            return new RedirectResponse($this->urlGenerator->generate("block"));
-        }
+       
 
         if ($this->security->isGranted('ROLE_BLOCKED')) {
             return new RedirectResponse($this->urlGenerator->generate("block"));
@@ -64,10 +62,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         if ($this->security->isGranted('ROLE_ADMIN')) {
             return new RedirectResponse($this->urlGenerator->generate("meal_planner"));
         }elseif ($this->security->isGranted('ROLE_USER')){
-            return new RedirectResponse($this->urlGenerator->generate("meal_planne"));
-        } else {
-            return new RedirectResponse($this->urlGenerator->generate("app_login"));
-        }
+            return new RedirectResponse($this->urlGenerator->generate("meal_planner"));
+        } 
 
     }
 

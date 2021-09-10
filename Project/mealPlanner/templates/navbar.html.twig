@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="{{path('meal_planner')}}"><img src="img/logo.svg" height="50px" alt="logo" class="me-2">MEAL
+            <a class="navbar-brand" href="{{path('meal_planner')}}"><img src="{{asset('img/logo.svg')}}" height="50px" alt="logo" class="me-2">MEAL
                 PLANNER</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -11,14 +11,45 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="text-white nav-link" href="{{path('meal_planner')}}">Dishes</a>
-                    <a class="text-white nav-link" href="{{path('meal_planner')}}">Meals</a>
-                    <a class="text-white nav-link" href="{{path('meal_planner')}}">Vegan</a>
-                    <a class="text-white nav-link" href="{{path('meal_planner')}}">Veterean</a>
-                    <a class="text-white nav-link" href="{{path('meal_planner')}}">Meat</a>
-                    <a class="text-white nav-link" href="{{path('app_login')}}">Login</a>
-                    <a class="text-white nav-link" href="{{path('app_register')}}">Register</a>
+                    <li class="nav-item dropdown">
+                    {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dishes
+          </a>
+             <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+            
+            
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="text nav-link" href="{{path('meal_planner')}}">Dishes</a></li>
+            <li><a class="text nav-link" href="{{path('meal_planner')}}">Meals</a></li>
+             <li><a class="text nav-link" href="{{path('meal_planner')}}">Vegan</a></li>
+            <li> <a class="text nav-link" href="{{path('meal_planner')}}">Veterean</a></li>
+             <li><a class="text nav-link" href="{{path('meal_planner')}}">Meat</a></li>
+          </ul>
+           </li>   
+            {% endif %}
+            {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a class="text-white nav-link" href="/create">Add dish</a>
+             {% endif %}
+                    {% if  is_granted('ROLE_ADMIN') %}
+                        <a class="text-white nav-link" href="/dashboard">Manage Users</a>
+                    {% endif %}
+                     {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class="text-white nav-link" href="/profile/{{app.user.id}}">My Profile</a>
+                    {% endif %}
                 </div>
+
             </div>
+            
+        </li>
+            {% if app.user %}
+                 <div class="mt-2 d-flex align-items-center justify-content-center text-center">
+                   <h6 class="text-white p-3"> Welcome {{ app.user.username }} !</h6>
+                 </div>
+                {% endif %}
+                {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class="text-white nav-link btn btn-danger" href="{{path('app_logout')}}">Logout</a>
+                     {% endif %}
+                    
         </div>
     </nav>
