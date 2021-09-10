@@ -23,10 +23,13 @@ use App\Entity\User;
 
 class MealPlannerController extends AbstractController
 {
+
     #[Route('/', name: 'meal_planner')]
+    
     public function index(): Response
     {
         
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findAll();
 
         return $this->render('meal_planner/index.html.twig', [
@@ -37,6 +40,7 @@ class MealPlannerController extends AbstractController
     #[Route('/create', name: 'dish-create')]
     public function create(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $dish = new Dishes();
         $form = $this->createFormBuilder($dish)
             ->add("dish_name", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
@@ -128,7 +132,7 @@ class MealPlannerController extends AbstractController
     #[Route('/details/{id}', name: 'dish-details')]
     public function details($id): Response
     {
-
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $dish = $this->getDoctrine()->getRepository(Dishes::class)->find($id);
         return $this->render('meal_planner/details.html.twig', [
             "dish" => $dish
@@ -139,7 +143,7 @@ class MealPlannerController extends AbstractController
     public function delete($id): Response
     {
 
-
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $em = $this->getDoctrine()->getManager();
         $event = $em->getRepository(Dishes::class)->find($id);
         $em->remove($event);
@@ -153,7 +157,7 @@ class MealPlannerController extends AbstractController
     #[Route('/edit/{id}', name: 'dish-edit')]
     public function  edit($id, Request $request): Response
     {
-
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $dish = $this->getDoctrine()->getRepository(Dishes::class)->find($id);
         $form = $this->createFormBuilder($dish)
             ->add("dish_name", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
@@ -243,7 +247,7 @@ class MealPlannerController extends AbstractController
     #[Route('/block', name: 'block')]
     public function block(): Response
     {
-
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
       
        
 
@@ -255,7 +259,7 @@ class MealPlannerController extends AbstractController
     #[Route('/profile/{id}', name: 'profile')]
     public function  profile($id, Request $request): Response
     {
-
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
         $form = $this->createFormBuilder($user)
             ->add("email", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
@@ -308,6 +312,7 @@ class MealPlannerController extends AbstractController
     #[Route('/dashboard', name: 'dashboard')]
     public function dashboard(): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
 
         return $this->render('meal_planner/dashboard.html.twig', [
@@ -319,7 +324,7 @@ class MealPlannerController extends AbstractController
     public function remove($id): Response
     {
 
-
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find($id);
         $em->remove($user);
