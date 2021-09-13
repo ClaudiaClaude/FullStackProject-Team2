@@ -266,7 +266,8 @@ class MealPlannerController extends AbstractController
             // ->add("roles", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("password", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("username", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("avatar", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("avatar", FileType::class, array('attr'=>array("class"=>"form-control", "style"=>"margin-bottom:15px"), 'label' => 'Image (png/jpg file)', 'mapped'=> false, 'required'=> false, 'constraints'=>[ new File(['maxSize' =>'2048k', 'mimeTypes' => ['image/*'], 'mimeTypesMessage' =>'Please upload a valid image document',])]))
+            // ->add("avatar", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
          
 
             ->add("save", SubmitType::class, array('attr' => array("class" => "btn btn-success", "style" => "margin-bottom: 15px; margin-top: 15px;"), "label" => "Submit"))->getForm();
@@ -279,16 +280,24 @@ class MealPlannerController extends AbstractController
             $password = $form["password"]->getData();
             $username = $form["username"]->getData();
             $avatar = $form["avatar"]->getData();
-            
-       
 
-
+            if ($avatar){
+                $originalFilename = pathinfo($avatar->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$avatar->guessExtension();
+                try {
+                    $avatar->move($this->getParameter('user_picture_directory'), $newFilename);
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $user->setAvatar($newFilename);
+            }
 
             $user->setEmail($email);
             // $user->setRoles($roles);
             $user->setPassword($password);
             $user->setUsername($username);
-            $user->setAvatar($avatar);
+            // $user->setAvatar($avatar);
             
 
             $em = $this->getDoctrine()->getManager();
@@ -330,7 +339,7 @@ class MealPlannerController extends AbstractController
         $em->remove($user);
         $em->flush();
 
-        $this->addFlash("notice", "Dish removed");
+        $this->addFlash("notice", "User removed");
 
         return $this->redirectToRoute("dashboard");
     }
