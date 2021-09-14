@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meal Planner :: Admin - Users</title>
+
+    <!--Bootstrap 5 link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!--CSS Link-->
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- Read, Delete, Edit Link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- Social Media Icons Link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="user.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"><img src="img/logo.svg" height="50px" alt="logo">MEAL
+                    PLANNER</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="text-white nav-link" href="/planner">Planner</a>
+                        <a class="text-white nav-link" href="/dishes">Dishes</a>
+                        <a class="text-white nav-link" href="/meals">Meals</a>
+                        <a class="text-white nav-link" href="/">Vegan</a>
+                        <a class="text-white nav-link" href="/">Veterean</a>
+                        <a class="text-white nav-link" href="/">Meat</a>
+                        <a class="text-white nav-link" href="/login">Login</a>
+                        <a class="text-white nav-link" href="/register">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+        <div class="ban mt-3 mb-3">
+             <button type="button" class="btn btn-danger">Log out</button>
+        </div>
+
+
+        <div id="avatar"></div>   
+            
+   <div class="ban mt-3 mb-3">   
+       <h2>Hello Admin</h2>      
+   </div> 
+       
+                 
+<div id="admin" class="adm">
+    <button type="button" class="btn btn-info">Users</button>
+    <button type="button" class="btn btn-warning">Meals</button>
+            </div>
+                <form class="container d-flex mt-3">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+             
+            
+   
+
+
+        <h1>Users</h1>
+
+        <div class="container">
+            <div class="main-body">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
+
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-header bg-dark">&nbsp;</div>
+                            <div class="card-body text-center">
+                                <img src="img/avatar.png" style="width:100px;margin-top:-65px" alt="User"
+                                    class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
+                                <h5 class="card-title">Claudia</h5>
+                                <p class="text-secondary mb-1">Full Stack Developer</p>
+                                <p class="text-muted font-size-sm">Vienna, Austria</p>
+                            </div>
+                            <div class="card-footer text-end">
+
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-pencil-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-trash-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-search"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-header bg-dark">&nbsp;</div>
+                            <div class="card-body text-center">
+                                <img src="img/avatar.png" style="width:100px;margin-top:-65px" alt="User"
+                                    class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
+                                <h5 class="card-title">Uros</h5>
+                                <p class="text-secondary mb-1">Full Stack Developer</p>
+                                <p class="text-muted font-size-sm">Vienna, Austria</p>
+                            </div>
+                            <div class="card-footer text-end">
+
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-pencil-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-trash-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-search"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-header bg-dark">&nbsp;</div>
+                            <div class="card-body text-center">
+                                <img src="img/avatar.png" style="width:100px;margin-top:-65px" alt="User"
+                                    class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
+                                <h5 class="card-title">Bilal</h5>
+                                <p class="text-secondary mb-1">Full Stack Developer</p>
+                                <p class="text-muted font-size-sm">Vienna, Austria</p>
+                            </div>
+                            <div class="card-footer text-end">
+
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-pencil-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-trash-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-search"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-header bg-dark">&nbsp;</div>
+                            <div class="card-body text-center">
+                                <img src="img/avatar.png" style="width:100px;margin-top:-65px" alt="User"
+                                    class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
+                                <h5 class="card-title">Patrik</h5>
+                                <p class="text-secondary mb-1">Full Stack Developer</p>
+                                <p class="text-muted font-size-sm">Vienna, Austria</p>
+                            </div>
+                            <div class="card-footer text-end">
+
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-pencil-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-trash-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-search"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-header bg-dark">&nbsp;</div>
+                            <div class="card-body text-center">
+                                <img src="img/avatar.png" style="width:100px;margin-top:-65px" alt="User"
+                                    class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
+                                <h5 class="card-title">Felix</h5>
+                                <p class="text-secondary mb-1">Full Stack Developer</p>
+                                <p class="text-muted font-size-sm">Vienna, Austria</p>
+                            </div>
+                            <div class="card-footer text-end">
+
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-pencil-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-trash-fill"></i></a>
+                                <a href="#" class=" btn btn-outline-dark border-0"><i class="bi bi-search"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer class="bg-dark text-white pt-5 pb-4">
+            <div class="container text-center text-md-left">
+                <div class="row text-center text-md-left">
+
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h3 class="text-uppercase mb-4"> <img src="img/logo.svg" height="50px" alt="logo">Meal Planner
+                        </h3>
+                        <a href="#" class="fa fa-facebook"></a>
+
+                        <a href="#" class="fa fa-google"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-youtube"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-whatsapp"></a>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+    </div>
+    </footer>
+    </div>
+    <!--Javascript Link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

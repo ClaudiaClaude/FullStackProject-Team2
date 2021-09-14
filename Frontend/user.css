@@ -70,3 +70,34 @@
     padding: .5rem 1rem;
     border-top: 0 solid rgba(0,0,0,.125);
 }
+
+/* ////////////////admin banner start/////////////// */
+
+h1 {
+    text-align: center;
+}
+
+#admin {
+display: flex;
+justify-content: space-evenly;
+}
+
+.ban {
+    text-align: center;
+}
+
+#avatar {
+    
+    background-image: url('http://i.stack.imgur.com/Dj7eP.jpg');
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: top center;
+    border-radius: 50%;
+    justify-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
