@@ -30,7 +30,7 @@ class MealPlannerController extends AbstractController
     {
         
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findAll();
+        $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findBy(["dish_status" => "Approved"]);;
 
         return $this->render('meal_planner/index.html.twig', [
             "dishes" => $dishes
@@ -49,13 +49,14 @@ class MealPlannerController extends AbstractController
             ->add("nutrition_facts", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("ingredients", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("recipe", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("type", ChoiceType::class, [
+            ->add("type", ChoiceType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
                 'choices' => [
                     'Vegan' => 'Vegan',
-                    'Vegetarian' => 'Vegeterian'
+                    'Vegetarian' => 'Vegetarian',
+                    'Meat' => 'Meat'
                 ]
             ], array('choice_attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("category", ChoiceType::class, [
+            ->add("category", ChoiceType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
                 'choices' => [
                     'Breakfast' => 'Breakfast',
                     'Lunch' => 'Lunch',
@@ -63,11 +64,14 @@ class MealPlannerController extends AbstractController
                 ]
             ] )
             ->add("calories", NumberType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("dish_status", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            
-            ->add('fk_user_id', EntityType::class, [
+            ->add("dish_status", ChoiceType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
+                'choices' => [
+                    'Not Approved' => 'Not Approved',
+                ]
+            ] )
+            ->add('fk_user_id', EntityType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
                 'class' => User::class,
-                'choice_label' => 'email',
+                'choice_label' => 'username',
             ])
 
             ->add("save", SubmitType::class, array('attr' => array("class" => "btn btn-success", "style" => "margin-bottom: 15px; margin-top: 15px;"), "label" => "Submit"))->getForm();
@@ -166,13 +170,14 @@ class MealPlannerController extends AbstractController
             ->add("nutrition_facts", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("ingredients", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add("recipe", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("type", ChoiceType::class, [
-                'choices' => [
+            ->add("type", ChoiceType::class, ['attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
+                'choices' => [ 
                     'Vegan' => 'Vegan',
-                    'Vegetarian' => 'Vegeterian'
+                    'Vegetarian' => 'Vegetarian',
+                    'Meat' => 'Meat'
                 ]
             ] )
-            ->add("category", ChoiceType::class, [
+            ->add("category", ChoiceType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
                 'choices' => [
                     'Breakfast' => 'Breakfast',
                     'Lunch' => 'Lunch',
@@ -180,11 +185,15 @@ class MealPlannerController extends AbstractController
                 ]
             ] )
             ->add("calories", NumberType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("dish_status", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("dish_status", ChoiceType::class, ['attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
+                'choices' => [ 
+                    'Not Approved' => 'Not Approved'
+                ]
+            ] )
             
-            ->add('fk_user_id', EntityType::class, [
+            ->add('fk_user_id', EntityType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
                 'class' => User::class,
-                'choice_label' => 'email',
+                'choice_label' => 'username',
             ])
 
             ->add("save", SubmitType::class, array('attr' => array("class" => "btn btn-success", "style" => "margin-bottom: 15px; margin-top: 15px;"), "label" => "Submit"))->getForm();
@@ -344,4 +353,164 @@ class MealPlannerController extends AbstractController
         return $this->redirectToRoute("dashboard");
     }
 
+    #[Route('/mydishes/{id}', name: 'mydishes')]
+    public function mydishes($id): Response
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $dishes = $this->getDoctrine()->getRepository("App:Dishes")->findBy(["fk_user_id" => $id]);
+        $users = $this->getDoctrine()->getRepository(User::class)->find($id);
+        return $this->render("meal_planner/mydishes.html.twig", [
+            "users" => $users,
+            "dishes" => $dishes
+        ]);
+    }
+
+    #[Route('/editstatus/{id}', name: 'dish-status')]
+    public function  editstatus($id, Request $request): Response
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $dish = $this->getDoctrine()->getRepository(Dishes::class)->find($id);
+        $form = $this->createFormBuilder($dish)
+            ->add("dish_name", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("image", FileType::class, array('attr'=>array("class"=>"form-control", "style"=>"margin-bottom:15px"), 'label' => 'Image (png/jpg file)', 'mapped'=> false, 'required'=> false, 'constraints'=>[ new File(['maxSize' =>'2048k', 'mimeTypes' => ['image/*'], 'mimeTypesMessage' =>'Please upload a valid image document',])]))
+            ->add("description", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("nutrition_facts", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("ingredients", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("recipe", TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("type", ChoiceType::class, ['attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
+                'choices' => [ 
+                    'Vegan' => 'Vegan',
+                    'Vegetarian' => 'Vegetarian',
+                    'Meat' => 'Meat'
+                ]
+            ] )
+            ->add("category", ChoiceType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
+                'choices' => [
+                    'Breakfast' => 'Breakfast',
+                    'Lunch' => 'Lunch',
+                    'Dinner' => 'Dinner',
+                ]
+            ] )
+            ->add("calories", NumberType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+            ->add("dish_status", ChoiceType::class, ['attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
+                'choices' => [ 
+                    'Not Approved' => 'Not Approved',
+                    'Approved' => 'Approved'
+
+                    
+                ]
+            ] )
+            
+            ->add('fk_user_id', EntityType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
+                'class' => User::class,
+                'choice_label' => 'username',
+            ])
+
+            ->add("save", SubmitType::class, array('attr' => array("class" => "btn btn-success", "style" => "margin-bottom: 15px; margin-top: 15px;"), "label" => "Submit"))->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $dish_name = $form["dish_name"]->getData();
+            $image = $form["image"]->getData();
+            $description = $form["description"]->getData();
+            $nutrition_facts = $form["nutrition_facts"]->getData();
+            $ingredients = $form["ingredients"]->getData();
+            $recipe = $form["recipe"]->getData();
+            $type = $form["type"]->getData();
+            $category = $form["category"]->getData();
+            $calories = $form["calories"]->getData();
+            $dish_status = $form["dish_status"]->getData();
+       
+
+            if ($image){
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+                try {
+                    $image->move($this->getParameter('picture_directory'), $newFilename);
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $dish->setImage($newFilename);
+            }
+
+
+            $dish->setDishName($dish_name);
+            // $dish->setImage($image);
+            $dish->setDescription($description);
+            $dish->setNutritionFacts($nutrition_facts);
+            $dish->setIngredients($ingredients);
+            $dish->setRecipe($recipe);
+            $dish->setType($type);
+            $dish->setCategory($category);
+            $dish->setCalories($calories);
+            $dish->setDishStatus($dish_status);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($dish);
+            $em->flush();
+
+
+            $this->addFlash('notice', 'Dish edited');
+
+            return $this->redirectToRoute('meal_planner');
+        }
+
+        return $this->render('meal_planner/editstatus.html.twig', [
+            "form" => $form->createView()
+        ]);
+    }
+    #[Route('/notapproved', name: 'not')]
+    
+    public function not(): Response
+    {
+        
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findBy(["dish_status" => "Not Approved"]);;
+
+        return $this->render('meal_planner/notapproved.html.twig', [
+            "dishes" => $dishes
+        ]);
+    }
+
+    #[Route('/vegan', name: 'vegan')]
+    
+    public function vegan(): Response
+    {
+        
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findBy(["dish_status" => "Approved","type" => "Vegan"]);;
+
+        return $this->render('meal_planner/vegan.html.twig', [
+            "dishes" => $dishes
+        ]);
+    }
+
+    #[Route('/vegetarian', name: 'vegetarian')]
+    
+    public function vegetarian(): Response
+    {
+        
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findBy(["dish_status" => "Approved","type" => "Vegetarian"]);;
+
+        return $this->render('meal_planner/vegetarian.html.twig', [
+            "dishes" => $dishes
+        ]);
+    }
+
+    #[Route('/meat', name: 'meat')]
+    
+    public function meat(): Response
+    {
+        
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $dishes = $this->getDoctrine()->getRepository(Dishes::class)->findBy(["dish_status" => "Approved","type" => "Meat"]);;
+
+        return $this->render('meal_planner/meat.html.twig', [
+            "dishes" => $dishes
+        ]);
+    }
 }

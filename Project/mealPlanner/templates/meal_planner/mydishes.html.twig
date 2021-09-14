@@ -10,8 +10,7 @@
  
 
 
-<h1 class="color text-center m-3">All Dishes</h1>
-
+<h1 class="color text-center m-3">My Dishes</h1>
     <div class="row">
     {% for dish in dishes %}
 
@@ -24,10 +23,8 @@
               <hr>
               <p class="card-text">{{dish.description}}</p>
               <p class="card-text">{{dish.type}}</p>
-              {% if  is_granted('ROLE_ADMIN') %}
               <a href="/edit/{{dish.id}}" class="m-1 btn btn-warning" >Edit</a>
               <a href="/delete/{{dish.id}}" class="m-1 btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')" class="btn-grad2">Delete</a>
-              {% endif %}
               <a href="/details/{{dish.id}}" class="m-1 btn btn-primary">Details</a>
 
             </div>
@@ -37,4 +34,5 @@
     {% endfor  %}
 </div>
 </div>
+
 {% endblock %}

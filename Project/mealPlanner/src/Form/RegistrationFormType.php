@@ -12,6 +12,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 
 
 class RegistrationFormType extends AbstractType
@@ -20,7 +22,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
         ->add('username', TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-        ->add('avatar', TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
+        ->add("avatar", FileType::class, array('attr'=>array("class"=>"form-control", "style"=>"margin-bottom:15px"), 'label' => 'Image (png/jpg file)', 'mapped'=> false, 'required'=> false, 'constraints'=>[ new File(['maxSize' =>'2048k', 'mimeTypes' => ['image/*'], 'mimeTypesMessage' =>'Please upload a valid image document',])]))
             ->add('email', TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -30,11 +32,11 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('plainPassword', PasswordType::class,    [
+            ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => ["class" => "form-control", "style" => "margin-bottom: 15px;", 'autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -47,7 +49,10 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            
         ;
+        
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)

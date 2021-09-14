@@ -22,9 +22,9 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="text nav-link" href="{{path('meal_planner')}}">Dishes</a></li>
             <li><a class="text nav-link" href="{{path('meal_planner')}}">Meals</a></li>
-             <li><a class="text nav-link" href="{{path('meal_planner')}}">Vegan</a></li>
-            <li> <a class="text nav-link" href="{{path('meal_planner')}}">Veterean</a></li>
-             <li><a class="text nav-link" href="{{path('meal_planner')}}">Meat</a></li>
+             <li><a class="text nav-link" href="{{path('vegan')}}">Vegan</a></li>
+            <li> <a class="text nav-link" href="{{path('vegetarian')}}">Vegetarian</a></li>
+             <li><a class="text nav-link" href="{{path('meat')}}">Meat</a></li>
           </ul>
            </li>   
             {% endif %}
@@ -33,9 +33,11 @@
              {% endif %}
                     {% if  is_granted('ROLE_ADMIN') %}
                         <a class="text-white nav-link" href="/dashboard">Manage Users</a>
+                        <a class="text-white nav-link" href="/notapproved">Not Approved</a>
                     {% endif %}
                      {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
                     <a class="text-white nav-link" href="/profile/{{app.user.id}}">My Profile</a>
+                    <a class="text-white nav-link" href="/mydishes/{{app.user.id}}">My Dishes</a>
                     {% endif %}
                 </div>
 
