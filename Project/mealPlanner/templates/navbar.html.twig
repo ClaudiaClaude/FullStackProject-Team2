@@ -39,6 +39,12 @@
                     <a class="text-white nav-link" href="/profile/{{app.user.id}}">My Profile</a>
                     <a class="text-white nav-link" href="/mydishes/{{app.user.id}}">My Dishes</a>
                     {% endif %}
+                    {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class="text-white nav-link" href="/schedule/meals/new">Plan a Meal</a>
+             {% endif %}
+             {% if  is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class="text-white nav-link" href="/schedule/meals">My Meals</a>
+             {% endif %}
                 </div>
 
             </div>
