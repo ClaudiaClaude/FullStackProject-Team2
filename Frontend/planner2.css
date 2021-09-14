@@ -1,0 +1,16 @@
+#planner .mealtype {
+    font-family: 'Indie Flower', cursive;
+}
+
+#planner .list-group-item {
+  background-color: none !important;
+}
+
+#planner .meal-middle {
+    background-color: whitesmoke !important;
+}
+
+#planner .meal-outside {
+  background-color: none;
+
+}

@@ -1,0 +1,16 @@
+
+
+<div class="row mb-md-4 mb-2 ">
+    
+    <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+        <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">{% if day.tag < 10 %}0{% endif %}{{ day.tag }}</span></h1>
+        <h2 class="mx-2 d-inline d-lg-none">{{day.monat}}</h2>
+        <span class="fst-italic">{{day.day}}</span>
+        <h2 class="d-none d-lg-block">{{day.monat}}</h2>
+    </div>
+
+    {% for meal in day.meals%}
+        {{ include("home/meal.html.twig") }}
+    {% endfor %}
+
+</div>
