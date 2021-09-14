@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meal Planner :: Dishes</title>
+
+    <!--Bootstrap 5 link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!--CSS Link-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="planner1.css">
+
+    <!-- Read, Delete, Edit Link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- Social Media Icons Link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"><img src="img/logo.svg" height="50px" alt="logo">MEAL
+                    PLANNER</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="text-white nav-link" href="/planner">Planner</a>
+                        <a class="text-white nav-link" href="/dishes">Dishes</a>
+                        <a class="text-white nav-link" href="/meals">Meals</a>
+                        <a class="text-white nav-link" href="/">Vegan</a>
+                        <a class="text-white nav-link" href="/">Veterean</a>
+                        <a class="text-white nav-link" href="/">Meat</a>
+                        <a class="text-white nav-link" href="/login">Login</a>
+                        <a class="text-white nav-link" href="/register">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--Caroussel Header-->
+        <div class="item">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://www.dropicts.com/wp-content/uploads/Dropicts-Featured-Images-Food-Photography-06-edited-1024x576.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://clicklovegrow.com/wp-content/uploads/2020/03/Naomi-Sherman-Advanced-Graduate4.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://cdn.profoto.com/cdn/05238cd/globalassets/tips-and-tricks/profoto-c1-plus-food-photography-anders-hannola.jpg?width=1200&quality=75&format=jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+
+        <h1>Planner</h1>
+
+        <div id="planner" class="container my-5 border-0">
+
+
+
+            <div class="row mb-md-4 mb-2 ">
+
+                <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+                    <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">29</span></h1>
+                    <h2 class="mx-2 d-inline d-lg-none">Oktober</h2>
+                    <span class="fst-italic">Monday</span>
+                    <h2 class="d-none d-lg-block">Oktober</h2>
+                </div>
+
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Breakfast</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">7:00 -
+                                08:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Müsli</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/muesli.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Coffee</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/coffee.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Bread</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/bread.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-middle">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Lunch</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">12:00 -
+                                14:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Soup</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/soup.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Pizza</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/pizza.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Dinner</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">18:00 -
+                                19:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Beef</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/beef.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Ice Cream</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/ice-cream.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-md-4 mb-2 ">
+
+                <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+                    <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">30</span></h1>
+                    <h2 class="mx-2 d-inline d-lg-none">Oktober</h2>
+                    <span class="fst-italic">Tuesday</span>
+                    <h2 class="d-none d-lg-block">Oktober</h2>
+                </div>
+
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Breakfast</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">7:00 -
+                                08:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Müsli</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/muesli.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Coffee</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/coffee.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Bread</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/bread.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-middle">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Lunch</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">12:00 -
+                                14:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Soup</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/soup.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Pizza</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/pizza.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Dinner</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">18:00 -
+                                19:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Beef</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/beef.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Ice Cream</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/ice-cream.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-md-4 mb-2 ">
+
+                <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+                    <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">31</span></h1>
+                    <h2 class="mx-2 d-inline d-lg-none">Oktober</h2>
+                    <span class="fst-italic">Wednesday</span>
+                    <h2 class="d-none d-lg-block">Oktober</h2>
+                </div>
+
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Breakfast</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">7:00 -
+                                08:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Müsli</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/muesli.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Coffee</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/coffee.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Bread</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/bread.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-middle">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Lunch</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">12:00 -
+                                14:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Soup</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/soup.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Pizza</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/pizza.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Dinner</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">18:00 -
+                                19:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Beef</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/beef.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Ice Cream</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/ice-cream.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-md-4 mb-2 ">
+
+                <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+                    <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">01</span></h1>
+                    <h2 class="mx-2 d-inline d-lg-none">November</h2>
+                    <span class="fst-italic">Thursday</span>
+                    <h2 class="d-none d-lg-block">November</h2>
+                </div>
+
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Breakfast</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">7:00 -
+                                08:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Müsli</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/muesli.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Coffee</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/coffee.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Bread</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/bread.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-middle">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Lunch</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">12:00 -
+                                14:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Soup</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/soup.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Pizza</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/pizza.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Dinner</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">18:00 -
+                                19:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Beef</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/beef.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Ice Cream</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/ice-cream.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-md-4 mb-2 ">
+
+                <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+                    <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">02</span></h1>
+                    <h2 class="mx-2 d-inline d-lg-none">November</h2>
+                    <span class="fst-italic">Friday</span>
+                    <h2 class="d-none d-lg-block">November</h2>
+                </div>
+
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Breakfast</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">7:00 -
+                                08:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Müsli</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/muesli.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Coffee</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/coffee.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Bread</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/bread.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-middle">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Lunch</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">12:00 -
+                                14:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Soup</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/soup.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Pizza</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/pizza.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Dinner</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">18:00 -
+                                19:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Beef</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/beef.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Ice Cream</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/ice-cream.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-md-4 mb-2 ">
+
+                <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+                    <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">03</span></h1>
+                    <h2 class="mx-2 d-inline d-lg-none">November</h2>
+                    <span class="fst-italic">Saturday</span>
+                    <h2 class="d-none d-lg-block">November</h2>
+                </div>
+
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Breakfast</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">7:00 -
+                                08:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Müsli</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/muesli.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Coffee</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/coffee.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Bread</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/bread.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-middle">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Lunch</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">12:00 -
+                                14:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Soup</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/soup.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Pizza</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/pizza.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Dinner</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">18:00 -
+                                19:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Beef</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/beef.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Ice Cream</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/ice-cream.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-md-4 mb-2 ">
+
+                <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+                    <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">04</span></h1>
+                    <h2 class="mx-2 d-inline d-lg-none">November</h2>
+                    <span class="fst-italic">Sunday</span>
+                    <h2 class="d-none d-lg-block">November</h2>
+                </div>
+
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Breakfast</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">7:00 -
+                                08:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Müsli</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/muesli.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Coffee</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/coffee.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Bread</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/bread.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-middle">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Lunch</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">12:00 -
+                                14:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Soup</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/soup.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Pizza</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/pizza.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Dinner</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic">18:00 -
+                                19:00</small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Salad</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/salad.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Beef</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/beef.jpg" /></a>
+                                </li>
+                                <li>
+                                    <h4 class="h6 mt-2 ms-1">Ice Cream</h4>
+                                    <a href="#"><img class="img-thumbnail border-dark" src="img/ice-cream.jpg" /></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer class="bg-dark text-white pt-5 pb-4">
+            <div class="container text-center text-md-left">
+                <div class="row text-center text-md-left">
+
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h3 class="text-uppercase mb-4"> <img src="img/logo.svg" height="50px" alt="logo">Meal Planner
+                        </h3>
+                        <a href="#" class="fa fa-facebook"></a>
+
+                        <a href="#" class="fa fa-google"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-youtube"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-whatsapp"></a>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+    </div>
+    </footer>
+    </div>
+    <!--Javascript Link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
