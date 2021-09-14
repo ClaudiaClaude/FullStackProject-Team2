@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Meals index{% endblock %}
+
+{% block body %}
+    <h1>Meals index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_time</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for meal in meals %}
+            <tr>
+                <td>{{ meal.id }}</td>
+                <td>{{ meal.dateTime ? meal.dateTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('schedule_meals_show', {'id': meal.id}) }}">show</a>
+                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('schedule_meals_new') }}">Create new</a>
+{% endblock %}
