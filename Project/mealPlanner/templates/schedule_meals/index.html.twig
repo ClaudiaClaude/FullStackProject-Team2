@@ -3,33 +3,99 @@
 {% block title %}Meals index{% endblock %}
 
 {% block body %}
-    <h1>Meals index</h1>
+         <div id="planner" class="container my-5 border-0">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date_time</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for meal in meals %}
-            <tr>
-                <td>{{ meal.id }}</td>
-                <td>{{ meal.dateTime ? meal.dateTime|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('schedule_meals_show', {'id': meal.id}) }}">show</a>
-                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <a href="{{ path('schedule_meals_new') }}">Create new</a>
+
+            <div class="row mb-md-4 mb-2 ">
+
+                <div class="mb-3 mb-lg-0 col-sm-12 col-md-12 col-lg-3 text-lg-end">
+                    <h1 class="d-inline d-lg-block"><span class="badge bg-dark text-white">Today</span></h1>
+                    <span class="fst-italic">{{ today }}</span>
+                </div>
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Breakfast</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic"></small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                {% for meal in result %}
+                                {% if meal.date_time >= breakfast_start and meal.date_time < lunch_start %}
+                                    <h4 class="h6 mt-2 ms-1">{{meal.date_time}}</h4>
+                                    <h4 class="h6 mt-2 ms-1">{{meal.dish_name}}</h4>
+                                    <img class="img-thumbnail border-dark" src="{{ asset( 'img/dishes/' ~ meal.image) }}" />
+                                    <div><a href="{{ path('schedule_meals_show', {'id': meal.id}) }}">show meal</a></div>
+                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}">edit</a>
+                                {% endif %}
+                                {% endfor %}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-middle">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Lunch</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic"></small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                               {% for meal in result %}
+                                {% if meal.date_time >= lunch_start and meal.date_time < dinner_start  %}
+                                    <h4 class="h6 mt-2 ms-1">{{meal.date_time}}</h4>
+                                    <h4 class="h6 mt-2 ms-1">{{meal.dish_name}}</h4>
+                                    <img class="img-thumbnail border-dark" src="{{ asset( 'img/dishes/' ~ meal.image) }}" />
+                                    <div><a href="{{ path('schedule_meals_show', {'id': meal.id}) }}">show meal</a></div>
+                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}">edit</a>
+                                {% endif %}
+                                {% endfor %}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class="mb-2 col-sm-12 col-md-4 col-lg-3 meal-outside">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item border-dark bg-transparent">
+                            <h3 class="d-inline d-md-block d-xl-inline text-start mb-0 mealtype">Dinner</h3>
+                            <small class="text-muted float-end float-md-start float-xl-end fst-italic"></small>
+                        </li>
+                        <li class="list-group-item bg-transparent">
+                            <ul class="list-unstyled">
+                                <li>
+                                {% for meal in result %}
+                                {% if meal.date_time >= dinner_start and meal.date_time < night_start   %}
+                                    <h4 class="h6 mt-2 ms-1">{{meal.date_time}}</h4>
+                                    <h4 class="h6 mt-2 ms-1">{{meal.dish_name}}</h4>
+                                    <img class="img-thumbnail border-dark" src="{{ asset( 'img/dishes/' ~ meal.image) }}" />
+                                    <div><a href="{{ path('schedule_meals_show', {'id': meal.id}) }}">show meal</a></div>
+                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}">edit</a>
+                                {% endif %}
+                                {% endfor %}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+  </div>
+
+
 {% endblock %}
