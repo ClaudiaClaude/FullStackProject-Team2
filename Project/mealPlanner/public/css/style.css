@@ -49,3 +49,14 @@
     background: #4FCE5D;
 }
 
+/* ////////////////////detail page start: Uros///////////////////////// */
+
+#recimg {
+    height: 35rem;
+    border: none;
+}
+#det {
+    border:1px solid black;
+}
+
+/* ///////////////////details page ends: Uros///////////////////////////// */

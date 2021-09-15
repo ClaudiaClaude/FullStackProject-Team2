@@ -151,24 +151,18 @@ class ScheduleMealsController extends AbstractController
         $user = $this->getUser();
         $meal = new Meals();
         $form = $this->createFormBuilder($meal)
-
         ->add("date_time", DateTimeType::class, array('input' => 'datetime',
         'data' => new \DateTime(),
         'minutes' => array(
            0, 15, 30, 45
-        ) ,'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-        ->add('fk_dish_id', EntityType::class, ['class' => Dishes::class, 'choice_label' => 'dish_name'])
+        ) ,'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"), 'label' => 'Choose the date and time',))
+        ->add('fk_dish_id', EntityType::class, ['class' => Dishes::class, 'choice_label' => 'dish_name', 'label' => 'Pick a dish'])
+
         ->add("save", SubmitType::class, array('attr' => array("class" => "btn btn-success", "style" => "margin-bottom: 15px; margin-top: 15px;"), "label" => "Submit"))->getForm();
 
 
 
         $form->handleRequest($request);
-
-
-
-
-       
-    
 
         if ($form->isSubmitted() && $form->isValid()) {
 
