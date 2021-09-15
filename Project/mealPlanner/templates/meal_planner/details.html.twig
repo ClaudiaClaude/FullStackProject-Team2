@@ -10,7 +10,7 @@
                 <div class="card-body mb-5">
                   <h5 class="card-title text-center">{{dish.dish_name}}</h5>
                 </div>
-                <img src="{{ asset( 'img/dishes/' ~ dish.image) }}" class="card-img-bottom" alt="...">
+                <img id="bimg" src="{{ asset( 'img/dishes/' ~ dish.image) }}" class="card-img-bottom" alt="...">
               </div>
 
 
@@ -54,6 +54,6 @@
                 </div>
               </div>
 
-        <a href="/" class="btn btn-primary">Back to the Dishes</a>
+        <a href="/mydishes/{{app.user.id}}" class="btn btn-primary">Back to the My Dishes</a>
          </div>
 {% endblock %}

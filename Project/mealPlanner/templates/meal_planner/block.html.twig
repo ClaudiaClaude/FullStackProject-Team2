@@ -4,11 +4,11 @@
 
 {% block body %}
   {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        <div class="mb-5 mt-5 container text-center" style="height:500px;">
+          <h5>  You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a></h5>
+   <h2 class="text-center" style="margin-top:200px;"> Unfortunately, your account has been blocked! Please contact the admin if you have questions?! </h2>
         </div>
     {% endif %}
 
-    You are blocked
 </div>
 {% endblock %}
