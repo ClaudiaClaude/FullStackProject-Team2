@@ -28,8 +28,7 @@
                                     <h4 class="h6 mt-2 ms-1">{{meal.date_time}}</h4>
                                     <h4 class="h6 mt-2 ms-1">{{meal.dish_name}}</h4>
                                     <img class="img-thumbnail border-dark" src="{{ asset( 'img/dishes/' ~ meal.image) }}" />
-                                    <div><a href="{{ path('schedule_meals_show', {'id': meal.id}) }}">show meal</a></div>
-                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}">edit</a>
+                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}" class="my-2 btn btn-warning">edit entry</a>
                                 {% endif %}
                                 {% endfor %}
                                 </li>
@@ -56,8 +55,7 @@
                                     <h4 class="h6 mt-2 ms-1">{{meal.date_time}}</h4>
                                     <h4 class="h6 mt-2 ms-1">{{meal.dish_name}}</h4>
                                     <img class="img-thumbnail border-dark" src="{{ asset( 'img/dishes/' ~ meal.image) }}" />
-                                    <div><a href="{{ path('schedule_meals_show', {'id': meal.id}) }}">show meal</a></div>
-                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}">edit</a>
+                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}"  class="my-2 btn btn-warning">edit entry</a>
                                 {% endif %}
                                 {% endfor %}
                                 </li>
@@ -84,8 +82,7 @@
                                     <h4 class="h6 mt-2 ms-1">{{meal.date_time}}</h4>
                                     <h4 class="h6 mt-2 ms-1">{{meal.dish_name}}</h4>
                                     <img class="img-thumbnail border-dark" src="{{ asset( 'img/dishes/' ~ meal.image) }}" />
-                                    <div><a href="{{ path('schedule_meals_show', {'id': meal.id}) }}">show meal</a></div>
-                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}">edit</a>
+                                    <a href="{{ path('schedule_meals_edit', {'id': meal.id}) }}"  class="my-2 btn btn-warning">edit entry</a>
                                 {% endif %}
                                 {% endfor %}
                                 </li>
