@@ -26,7 +26,19 @@ class RegistrationController extends AbstractController
                     $user,
                     $form->get('plainPassword')->getData()
                 )
-            );
+                );
+                $avatar = $form["avatar"]->getData();
+            if ($avatar){
+                $originalFilename = pathinfo($avatar->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $originalFilename;
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$avatar->guessExtension();
+                try {
+                    $avatar->move($this->getParameter('user_picture_directory'), $newFilename);
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+                $user->setAvatar($newFilename);
+            };
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);

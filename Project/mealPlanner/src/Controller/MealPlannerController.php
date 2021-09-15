@@ -185,11 +185,8 @@ class MealPlannerController extends AbstractController
                 ]
             ] )
             ->add("calories", NumberType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add("dish_status", ChoiceType::class, ['attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
-                'choices' => [ 
-                    'Not Approved' => 'Not Approved'
-                ]
-            ] )
+            ->add("dish_status", TextType::class, ['attr' => array("class" => "form-control", "style" => "margin-bottom: 15px; pointer-events:none")])
+               
             
             ->add('fk_user_id', EntityType::class, [ 'attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;"),
                 'class' => User::class,
