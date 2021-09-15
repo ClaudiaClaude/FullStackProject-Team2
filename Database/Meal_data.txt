@@ -213,3 +213,143 @@ type:
 category: Burgers
 calories: 397 calories
 dish_status: 
+
+
+DISH 1
+name:Meatball & tomato soup
+image:https://images.immediate.co.uk/production/volatile/sites/30/2020/08/meatball-tomato-soup-afa0bd0.jpg?quality=90&webp=true&resize=300,272
+description:Get three of your 5-a-day in one serving with this healthy, low-calorie tomato soup. The addition of meatballs and giant couscous means it's filling, too
+nutritions:fat12g, saturates3g, carbs36g, sugars14g, fibre6g, protein17g, salt0.7g
+ingrediens:
+1½ tbsp rapeseed oil
+1 onion, finely chopped
+2 red peppers, deseeded and sliced
+1 garlic clove, crushed
+½ tsp chilli flakes
+2 x 400g cans chopped tomatoes
+100g giant couscous
+500ml hot vegetable stock
+12 pork meatballs
+150g baby spinach
+½ small bunch of basil
+recipe:Heat the oil in a saucepan. Fry the onion and peppers for 7 mins, then stir through the garlic and chilli flakes and cook for 1 min. Add the tomatoes, giant couscous and veg stock and bring to a simmer.
+Season to taste, then add the meatballs and spinach. Simmer for 5-7 mins or until cooked through. Ladle into bowls and top with the basil and some parmesan, if you like.
+type:Soup
+category:Dinner
+calories: kcal330
+
+DISH 2
+name:Chorizo & mozzarella gnocchi bake
+image: https://images.immediate.co.uk/production/volatile/sites/30/2020/08/gnocchi-1d16725.jpg?quality=90&webp=true&resize=300,272
+description: Upgrade cheesy tomato pasta with gnocchi, chorizo and mozzarella for a comforting bake that makes an excellent midweek meal
+nutritions:fat 13g, saturates 6g, carbs 36g, sugars 8g, fibre 4g, protein 13g, salt 1.7g
+ingrediens:
+1 tbsp olive oil 
+1 onion , finely chopped
+2 garlic cloves , crushed
+120g chorizo , diced
+2 x 400g cans chopped tomatoes
+1 tsp caster sugar
+600g fresh gnocchi
+125g mozzarella ball, cut into chunks
+small bunch of basil , torn
+green salad , to serve
+recipe:
+Heat the oil in a medium pan over a medium heat. Fry the onion and garlic for 8-10 mins until soft.
+Add the chorizo and fry for 5 mins more. Tip in the tomatoes and sugar, and season. Bring to a simmer, then add the gnocchi and cook for 8 mins, stirring often, until soft. Heat the grill to high.
+Stir ¾ of the mozzarella and most of the basil through the gnocchi. Divide the mixture between six ovenproof ramekins, or put in one baking dish. Top with the remaining mozzarella, then grill for 3 mins, or until the cheese is melted and golden.
+ Season, scatter over the remaining basil and serve with green salad.
+type:Pasta
+category:Main meal
+calories: kcal 318
+
+DISH 3
+name:Mushroom hash with poached eggs
+image:https://images.immediate.co.uk/production/volatile/sites/30/2020/08/440-400-mushroom-hash-with-poached-eggs-7527ce8.jpg?quality=90&webp=true&resize=300,272
+description:Get three of your 5-a-day before midday with this nutritious brunch recipe. Mushrooms are a good source of zinc, a key nutrient for maintaining healthy skin
+nutritions: fat17g, saturates3g, carbs15g, sugars11g, fibre6g, protein15g, salt0.2g
+ingrediens:
+1 ½ tbsp rapeseed oil
+2 large onions , halved and sliced
+500g closed cup mushrooms , quartered
+1 tbsp fresh thyme leaves , plus extra for sprinkling
+500g fresh tomatoes , chopped
+1 tsp smoked paprika
+4 tsp omega seed mix (see tip)
+4 large eggs
+recipe:
+Heat the oil in a large non-stick frying pan and fry the onions for a few mins. Cover the pan and leave the onions to cook in their own steam for 5 mins more.
+Tip in the mushrooms with the thyme and cook, stirring frequently, for 5 mins until softened. Add the tomatoes and paprika, cover the pan and cook for 5 mins until pulpy. Stir through the seed mix.
+If you're making this recipe as part of our two-person Summer Healthy Diet Plan, poach two of the eggs in lightly simmering water to your liking. Serve on top of half the hash with a sprinkling of fresh thyme and some black pepper. 
+Chill the remaining hash to warm in a pan and eat with freshly poached eggs on another day. If you're serving four people, poach all four eggs, divide the hash between four plates, sprinkle with thyme and black pepper and serve with the eggs on top.
+type:Mushrooms
+category: Breakfast
+calories: kcal 283
+
+DISH 4
+name:Luscious lemon baked cheesecake
+image:https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-22204_10-836d350.jpg?quality=90&webp=true&resize=300,272
+description:A simple but very impressive pud, light enough to have a slice to finish a big meal
+nutritions: fat57g, saturates34g, carbs43g, sugars25g, fibre0g, protein7g, salt1.08g
+ingrediens:
+225g digestive biscuits
+100g butter, melted
+250g tub mascarpone
+600g soft cheese
+2 eggs, plus 2 yolks
+zest 3 lemons, juice of 1
+4 tbsp plain flour
+175g caster sugar
+½ a 284ml pot soured cream
+3 tbsp lemon curd
+recipe:Heat oven to 180C/fan 160C/gas 4. Line the bottom of a 23cm springform tin with greaseproof paper. Tip the biscuits and melted butter into a food processor, then blitz to make fine crumbs. Press into the tin and chill.
+Whisk all the other ingredients in a large bowl until completely combined, pour into the tin, then bake for 35-40 mins until the cheesecake has a uniform wobble.
+Turn off the oven and leave the cake inside until cool. When it is completely cooled, remove from the tin and top with soured cream. Swirl lemon curd over the top and decorate with raspberries, if you like.
+type:Cake
+category:Desert
+calories: kcal 705
+
+DISH 5
+name:Teriyaki salmon & green beans
+image: https://images.immediate.co.uk/production/volatile/sites/30/2020/08/teriyaki-salmon-green-beans-e15a777.jpg?quality=90&webp=true&resize=300,272
+description:Buy a whole piece of salmon for this traybake if you're feeding a family and cut into adult and children-sized portions. It's cooked in a delicious teriyaki sauce
+nutritions: fat15g, saturates3g, carbs9g, sugars5g, fibre1g, protein28g, salt0.8g
+ingrediens:
+4 salmon fillets
+100g green beans , ends trimmed
+1 lemon , cut into wedges
+2 tbsp low-salt soy sauce
+1 tbsp honey
+1 tbsp mirin
+1 garlic clove , crushed
+recipe:Heat oven to 180C/160C fan/gas 4. If you have a whole piece of salmon, cut it into four fillets. Place a sheet of baking parchment on a baking tray and lay the salmon diagonally across it.
+Cook the beans in boiling water for 1 min and drain. Arrange the beans in piles around the salmon and add the lemon wedges to the baking tray. Mix the soy sauce, honey, mirin and garlic, and pour half of it over the beans and salmon. 
+Cook for 15 mins, then pour the rest of the sauce over the salmon. Cook for another 5 mins. Squeeze over the lemon and serve with noodles or rice.
+type:Fish
+category:Main meal
+calories: kcal 288
+
+DISH 6
+name:Chicken, kale & mushroom pot pie
+image:https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chicken-kale-mushroom-pot-pie-1b0817a.jpg?quality=90&webp=true&resize=300,272
+description:A satisfying chicken and mushroom one-pot that makes a great family supper or freeze leftovers for another day.
+nutritions:fat41g, saturates20g, carbs40g, sugars6g, fibre5g, protein34g, salt1.4g
+ingrediens:1 tbsp olive oil
+1 large onion, finely chopped
+3 thyme sprigs, leaves picked
+2 garlic cloves, crushed
+350g chicken breasts, cut into small chunks
+250g chestnut mushrooms, sliced
+300ml chicken stock
+100g crème fraîche
+1 tbsp wholegrain mustard
+100g kale
+2 tsp cornflour, mixed with 1 tbsp cold water
+375g pack puff pastry, rolled into a circle slightly bigger than your dish
+1 egg yolk, to glaze
+recipe:Heat ½ tbsp oil over a gentle heat in a flameproof casserole dish. Add the onion and cook for 5 mins until softening. Scatter over the thyme and garlic, and stir for 1 min. Turn up the heat and add the chicken, frying until golden but not fully cooked. Add the mushrooms and the remaining oil. Heat oven to 200C/180 fan/gas 6.
+Add the stock, crème fraîche, mustard and kale, and season well. Add the cornflour mixture and stir until thickened a little.
+Remove from the heat and cover with the puff pastry lid, pressing into the sides of the casserole dish. Slice a cross in the centre and glaze with the egg. Bake for 30 mins until the pastry is puffed up and golden.
+type: Pie
+category: Dinner
+calories: kcal 673
