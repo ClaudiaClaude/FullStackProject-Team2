@@ -24,7 +24,7 @@ class RegistrationFormType extends AbstractType
         ->add('username', TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
         ->add("avatar", FileType::class, array('attr'=>array("class"=>"form-control", "style"=>"margin-bottom:15px"), 'label' => 'Image (png/jpg file)', 'mapped'=> false, 'required'=> false, 'constraints'=>[ new File(['maxSize' =>'2048k', 'mimeTypes' => ['image/*'], 'mimeTypesMessage' =>'Please upload a valid image document',])]))
             ->add('email', TextType::class, array('attr' => array("class" => "form-control", "style" => "margin-bottom: 15px;")))
-            ->add('agreeTerms', CheckboxType::class, [
+            ->add('agreeTerms', CheckboxType::class, [ 'attr' => array("class" => "form-check-input", "style" => "margin-bottom: 15px;"),
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
